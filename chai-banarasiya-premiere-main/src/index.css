@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Chai Banarasiya Premium Design System */
+
+@layer base {
+  :root {
+    /* Primary Dark Theme */
+    --background: 0 0% 5%;
+    --foreground: 43 100% 95%;
+    
+    /* Cards with glassmorphism */
+    --card: 0 0% 8%;
+    --card-foreground: 43 100% 95%;
+    
+    --popover: 0 0% 8%;
+    --popover-foreground: 43 100% 95%;
+    
+    /* Warm Amber Primary */
+    --primary: 40 65% 55%;
+    --primary-foreground: 0 0% 5%;
+    
+    /* Rich Gold Secondary */
+    --secondary: 51 100% 50%;
+    --secondary-foreground: 0 0% 5%;
+    
+    /* Muted charcoal */
+    --muted: 0 0% 12%;
+    --muted-foreground: 43 30% 70%;
+    
+    /* Burgundy Accent */
+    --accent: 355 50% 33%;
+    --accent-foreground: 43 100% 95%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 40 65% 55%;
+    
+    --radius: 0.75rem;
+    
+    /* Custom luxury colors */
+    --amber: 40 65% 55%;
+    --gold: 51 100% 50%;
+    --cream: 43 100% 95%;
+    --burgundy: 355 50% 33%;
+    --charcoal: 0 0% 5%;
+    --charcoal-light: 0 0% 12%;
+    
+    /* Glassmorphism */
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.1;
+    
+    /* Glow effects */
+    --glow-amber: 40 65% 55%;
+    --glow-gold: 51 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 43 100% 95%;
+    --card: 0 0% 8%;
+    --card-foreground: 43 100% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 43 100% 95%;
+    --primary: 40 65% 55%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 51 100% 50%;
+    --secondary-foreground: 0 0% 5%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 43 30% 70%;
+    --accent: 355 50% 33%;
+    --accent-foreground: 43 100% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 40 65% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-poppins antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  
+  /* Glowing button */
+  .glow-button {
+    @apply relative overflow-hidden transition-all duration-300;
+    box-shadow: 0 0 20px hsl(var(--amber) / 0.3);
+  }
+  
+  .glow-button:hover {
+    box-shadow: 0 0 40px hsl(var(--amber) / 0.5), 0 0 60px hsl(var(--gold) / 0.3);
+  }
+  
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-amber to-gold bg-clip-text text-transparent;
+  }
+  
+  /* Animated underline */
+  .animated-underline {
+    @apply relative;
+  }
+  
+  .animated-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber to-gold transition-all duration-300;
+  }
+  
+  .animated-underline:hover::after {
+    @apply w-full;
+  }
+  
+  /* Section padding */
+  .section-padding {
+    @apply py-20 md:py-32 px-4 md:px-8;
+  }
+  
+  /* Luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-charcoal;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-amber/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-amber;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for horizontal scroll */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
